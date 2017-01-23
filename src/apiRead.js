@@ -14,11 +14,10 @@ api.use(function (req, res, next){
 /**
  *  ENDPOINTS
  */
-
-api.get('/findBook/book/:id', function (req, res, next) {
+api.get('/book/:id', function (req, res) {
     let id = req.params.id;
-    console.log('Processing findBook 1...');
-    res.json('Find book 1: ' + id);
+    console.log('Processing find book...');
+    res.json('Found book: ' + id);
 });
 
 module.exports = api;
