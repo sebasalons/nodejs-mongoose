@@ -1,0 +1,31 @@
+{
+  "name": "nodejs-mongoose",
+  "version": "1.0.0",
+  "description": "Workshop nodejs-mongoose",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test",
+    "watch": "gulp watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raqueleyeos/nodejs-mongoose.git"
+  },
+  "author": "raquel.sanchez@atrapalo.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raqueleyeos/nodejs-mongoose/issues"
+  },
+  "homepage": "https://github.com/raqueleyeos/nodejs-mongoose#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongoose": "^4.7.7"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-mocha": "^3.0.1",
+    "mocha": "^3.2.0",
+    "sinon": "^1.17.7"
+  }
+}
