@@ -14,8 +14,16 @@ api.use(function (req, res, next){
  */
 api.get('/book/:id', function (req, res) {
     let id = req.params.id;
-    console.log('Processing find book...');
-    res.json('Found book: ' + id);
+    let FindBookById = require('src/Application/Find/FindBookById');
+
+    FindBookById(id, (err, book) => {
+        if(err){
+            res.status(404).json(err.message);
+            return;
+        }
+
+        res.json(book);
+    });
 });
 
 module.exports = api;
