@@ -18,7 +18,17 @@ api.use(bodyParser.json());
 api.post('/book', function (req, res) {
     console.log('Processing create book...');
     console.log(req.body);
-    res.json('Save correctly');
+    let data = req.body;
+    let SaveBook = require('src/Application/Save/SaveBook');
+
+    SaveBook(data, (err, book) => {
+        if(err){
+            res.status(404).json(err.message);
+            return;
+        }
+
+        res.json(book);
+    });
 });
 
 module.exports = api;

@@ -1,4 +1,4 @@
-const BookRepository = require('src/Infrastructure/Persistence/InMemory/InMemoryBookRepository');
+const BookRepository = require('src/Infrastructure/Persistence/Mongodb/BookRepository');
 
 module.exports = function(id, callback){
     var bookId = parseInt(id);
@@ -6,5 +6,7 @@ module.exports = function(id, callback){
         callback(new TypeError('Invalid Argument'), null);
         return;
     }
-    BookRepository.findBookById(bookId, callback);
+
+    var bookRepository = new BookRepository();
+    bookRepository.findBookById(bookId, callback);
 };
