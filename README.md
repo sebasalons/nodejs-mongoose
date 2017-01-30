@@ -22,22 +22,22 @@ This example manages a small library.
 
     |Action|Type|Routes|
     |---|---|---|
-    |Add|POST|/book|
-    |Update|PUT|/book/:id|
-    |Delete|DELETE|/book/:id|
-    |Find book by ID|GET|/book/:id|
-    |List of all books|GET|/books/:finder|
-    |Get availables|GET|/book/available|
+    |Add|POST|/api/0.1/book|
+    |Update|PUT|/api/0.1/book/:id|
+    |Delete|DELETE|/api/0.1/book/:id|
+    |Find book by ID|GET|/api/0.1/book/:id|
+    |List of all books|GET|/api/0.1/books/:finder|
+    |Get availables|GET|/api/0.1/book/available|
 
     **Requests for reserves**
 
     |Action|Type|Routes|
     |---|---|---|
-    |Add|POST|/reserve/book|
-    |Update|PUT|/reserve/book/:id|
-    |Delete|DELETE|/reserve/book/:id|
-    |Find reserve by ID|GET|/reserve/book/:id|
-    |List of all reserves|GET|/reserves/book/:finder|
+    |Add|POST|/api/0.1/reserve/book|
+    |Update|PUT|/api/0.1/reserve/book/:id|
+    |Delete|DELETE|/api/0.1/reserve/book/:id|
+    |Find reserve by ID|GET|/api/0.1/reserve/book/:id|
+    |List of all reserves|GET|/api/0.1/reserves/book/:finder|
 
 
 ## Quick help
