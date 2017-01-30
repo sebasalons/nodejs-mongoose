@@ -1,6 +1,6 @@
 module.exports = {
     connection: {
-        port: 3001,
+        port: 3000,
         version: 0.1
     },
     mongodb: {
