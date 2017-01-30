@@ -21,7 +21,7 @@ This example manages a small library.
     **Requests for books**
 
     |Action|Type|Routes|
-    |--|--|--|
+    |---|---|---|
     |Add|POST|/book|
     |Update|PUT|/book/:id|
     |Delete|DELETE|/book/:id|
@@ -32,7 +32,7 @@ This example manages a small library.
     **Requests for reserves**
 
     |Action|Type|Routes|
-    |--|--|--|
+    |---|---|---|
     |Add|POST|/reserve/book|
     |Update|PUT|/reserve/book/:id|
     |Delete|DELETE|/reserve/book/:id|
