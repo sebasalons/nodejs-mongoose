@@ -15,13 +15,35 @@ api.use(bodyParser.json());
 /**
  *  ENDPOINTS
  */
+
+/**
+ * Add book
+ */
 api.post('/book', function (req, res) {
-    console.log('Processing create book...');
+    console.log('Creating book...');
     console.log(req.body);
     let data = req.body;
-    let SaveBook = require('src/Application/Save/SaveBook');
+    let AddBook = require('src/Application/Save/AddBook');
 
-    SaveBook(data, (err, book) => {
+    AddBook(data, (err, book) => {
+        if(err){
+            res.status(404).json(err.message);
+            return;
+        }
+
+        res.json(book);
+    });
+});
+
+/**
+ * Find book by Id
+ */
+api.get('/book/:id', function (req, res) {
+    console.log('Getting book: ', req.params.id);
+    let id = req.params.id;
+    let FindBookById = require('src/Application/Find/FindBookById');
+
+    FindBookById(id, (err, book) => {
         if(err){
             res.status(404).json(err.message);
             return;

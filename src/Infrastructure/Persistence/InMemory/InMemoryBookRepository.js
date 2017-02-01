@@ -19,8 +19,12 @@ module.exports.findBooks = function(callback){
 };
 
 module.exports.save = function(book, callback){
-    saveBook(book);
-    callback(null, true);
+    let result = saveBook(book);
+    if (!result) {
+        callback(new Error('Book not stored'), null);
+        return;
+    }
+    callback(null, result);
 };
 
 function findBook(bookId)
@@ -35,7 +39,13 @@ function findBook(bookId)
 
 function saveBook(book)
 {
-    if (book instanceof Book) {
-        books.push(book);
+    if (book['id'] !== undefined &&
+        book['name'] !== undefined &&
+        book['author'] !== undefined &&
+        book['pages'] !== undefined &&
+        book ['publisher'] !== undefined) {
+        books.push(new Book(book['id'], book['name'], book['author'], book['pages'], book['publisher']));
+        return true;
     }
+    return null;
 }

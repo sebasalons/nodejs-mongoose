@@ -9,4 +9,5 @@ module.exports = function(id, callback){
 
     var bookRepository = new BookRepository();
     bookRepository.findBookById(bookId, callback);
+    bookRepository.close();
 };

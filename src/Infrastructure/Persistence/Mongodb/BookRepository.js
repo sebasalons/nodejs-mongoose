@@ -1,6 +1,8 @@
 const BookModel = require('src/Infrastructure/Persistence/Mongodb/Model/BookModel');
 const mongoose = require('mongoose');
 const settings = require('src/Config/Settings');
+const Book = require('src/Domain/Book');
+const BookRespositoryFactory = require('src/Infrastructure/Persistence/Mongodb/BookRepositoryFactory');
 
 class BookRepository {
 
@@ -9,6 +11,18 @@ class BookRepository {
         mongoose.connect(settings.mongodb.url + settings.mongodb.database);
     }
 
+    /**
+     * Close connection mongoDB
+     */
+    close()
+    {
+        mongoose.connection.close();
+    }
+
+    /**
+     * @param integer id
+     * @param callback
+     */
     findBookById(id, callback)
     {
         BookModel.find({id: id}, function(err, book) {
@@ -16,10 +30,14 @@ class BookRepository {
                callback(new Error('Book Not Found'), null);
                return;
             }
-            callback(null, book);
+            var bookModel = BookRespositoryFactory.transformObjectToBook(book[0]);
+            callback(null, bookModel);
         });
     }
 
+    /**
+     * @param callback
+     */
     findBooks(callback)
     {
         BookModel.find({}, function (err, books) {
@@ -31,18 +49,16 @@ class BookRepository {
         });
     }
 
-    save(book, callback)
+    /**
+     * @param array data
+     * @param callback
+     */
+    save(data, callback)
     {
-        var newBook = new BookModel({
-            id: book.id,
-            name: book.name,
-            author: book.author,
-            pages: book.pages,
-            publisher: book.publisher
-        });
-        newBook.save(function(err, book) {
+        var newBook = BookRespositoryFactory.transformArrayToModel(data);
+        newBook.save(function(err, result) {
             if (err) {
-                callback(new Error('Book not saved'), null);
+                callback(new Error('Book not stored'), null);
                 return;
             }
             callback(null, true);

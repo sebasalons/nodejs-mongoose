@@ -33,7 +33,13 @@ describe('Book repository', () => {
     });
 
     it('can save a book', () => {
-        let book = new Book(4, 'AAAA', 'BBBBB', 288, 'FINANCIAL TIMES/PRENTICE HALL');
+        let book = {
+            id: 4,
+            name: 'AAAA',
+            author: 'BBBB',
+            pages: 288,
+            publisher: 'FINANCIAL TIMES/PRENTICE HALL'
+        };
         BookRepository.save(book,(err, res) =>{
             assert.ifError(err);
             assert.equal(true, res);
