@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const bookSchema = new Schema({
         id: {
             type: Number,
-            required: true
+            required: true,
+            unique: true
         },
         name: {
             type: String,
@@ -12,7 +13,8 @@ const bookSchema = new Schema({
         },
         author: {
             type: String,
-            required: true
+            required: true,
+            unique: true
         },
         pages: {
             type: Number,
