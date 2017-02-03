@@ -53,3 +53,11 @@ This example manages a small library.
 ```bash
     $ npm test
 ```
+
+* Reference URL
+
+    http://mongoosejs.com/
+    
+    https://www.thoughtworks.com/insights/blog/nosql-databases-overview
+    
+    https://martinfowler.com/videos.html#data
