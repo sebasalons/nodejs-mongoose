@@ -39,13 +39,6 @@ function findBook(bookId)
 
 function saveBook(book)
 {
-    if (book['id'] !== undefined &&
-        book['name'] !== undefined &&
-        book['author'] !== undefined &&
-        book['pages'] !== undefined &&
-        book ['publisher'] !== undefined) {
-        books.push(new Book(book['id'], book['name'], book['author'], book['pages'], book['publisher']));
-        return true;
-    }
-    return null;
+    books.push(new Book(book['id'], book['name'], book['author'], book['pages'], book['publisher']));
+    return true;
 }
