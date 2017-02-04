@@ -7,7 +7,7 @@ const Book = require('src/Domain/Book');
  */
 module.exports.transformArrayToModel = function(data)
 {
-    return new BookModel({
+    return BookModel({
         id: data['id'],
         name: data['name'],
         author: data['author'],
@@ -17,7 +17,7 @@ module.exports.transformArrayToModel = function(data)
 };
 
 /**
- * @param array data
+ * @param Object data
  * @returns Book
  */
 module.exports.transformObjectToBook = function(data)
