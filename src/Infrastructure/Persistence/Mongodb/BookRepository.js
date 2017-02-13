@@ -55,14 +55,34 @@ class BookRepository {
      */
     save(data, callback)
     {
-        var newBook = BookRespositoryFactory.transformArrayToModel(data);
-        newBook.save(function(err, result) {
+        BookModel.create(data,function(err,result) {
             if (err) {
                 callback(new Error('Book not stored'), null);
                 return;
             }
             callback(null, true);
         });
+    }
+
+    update(id, data, callback)
+    {
+        BookModel.findOneAndUpdate({id: id}, data, {new: true}, function(err, doc){
+            if(err){
+                callback(new Error('Book not update'), null);
+            }
+
+            callback(null, true);
+        });
+    }
+
+    delete(id, callback) {
+        BookModel.remove({id: id}, function(err) {
+            if(err){
+                callback(new Error('Book not delete'), null);
+            }
+        });
+
+        callback(null, true);
     }
 }
 

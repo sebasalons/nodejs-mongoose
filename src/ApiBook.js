@@ -53,4 +53,36 @@ api.get('/book/:id', function (req, res) {
     });
 });
 
+api.put('/book/:id', function (req, res) {
+    let id = req.params.id;
+    console.log('Update book: ' + id);
+    console.log(req.body);
+    let data = req.body;
+    let UpdateBook = require('src/Application/Update/UpdateBook');
+
+    UpdateBook(id, data, (err, book) => {
+        if(err){
+            res.status(404).json(err.message);
+            return;
+        }
+
+        res.json(book);
+    });
+
+});
+
+api.delete('/book/:id', function(req, res) {
+    let id = req.params.id;
+    console.log('Delete book: ' + id);
+    let DeleteBook = require('src/Application/Delete/DeleteBook');
+    DeleteBook(id, (err, book) => {
+        if(err){
+            res.status(404).json(err.message);
+            return;
+        }
+
+        res.json(book);
+    });
+});
+
 module.exports = api;
