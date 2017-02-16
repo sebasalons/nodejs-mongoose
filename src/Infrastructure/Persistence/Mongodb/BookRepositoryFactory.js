@@ -22,7 +22,7 @@ module.exports.transformArrayToModel = function(data)
  */
 module.exports.transformObjectToBook = function(data)
 {
-    return new Book(
+    return Book(
         data.id,
         data.name,
         data.author,

@@ -55,8 +55,7 @@ class BookRepository {
      */
     save(data, callback)
     {
-        var newBook = BookRespositoryFactory.transformArrayToModel(data);
-        newBook.save(function(err, result) {
+        BookModel.create(data, function(err) {
             if (err) {
                 callback(new Error('Book not stored'), null);
                 return;
