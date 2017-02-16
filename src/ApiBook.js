@@ -53,4 +53,20 @@ api.get('/book/:id', function (req, res) {
     });
 });
 
+/**
+ * Find book by Id
+ */
+api.get('/books', function (req, res) {
+    let FindBooks = require('src/Application/Find/FindBooks');
+
+    FindBooks((err, books) => {
+        if(err){
+            res.status(404).json(err.message);
+            return;
+        }
+
+        res.json(books);
+    });
+});
+
 module.exports = api;
