@@ -55,7 +55,8 @@ class BookRepository {
      */
     save(data, callback)
     {
-        BookModel.create(data, function(err) {
+        var bookToRegistry = BookRespositoryFactory.transformArrayToObjectMongo(data);
+        BookModel.create(bookToRegistry, function(err) {
             if (err) {
                 callback(new Error('Book not stored'), null);
                 return;

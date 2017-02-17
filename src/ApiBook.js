@@ -54,7 +54,7 @@ api.get('/book/:id', function (req, res) {
 });
 
 /**
- * Find book by Id
+ * Find all books
  */
 api.get('/books', function (req, res) {
     let FindBooks = require('src/Application/Find/FindBooks');
