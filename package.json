@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "gulp test",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "start": "nodemon -L index.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,8 @@
   "dependencies": {
     "body-parser": "^1.16.0",
     "express": "^4.14.0",
-    "mongoose": "*"
+    "mongoose": "*",
+    "nodemon": "^1.11.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",

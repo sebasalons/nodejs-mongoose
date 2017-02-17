@@ -11,7 +11,8 @@ This example manages a small library.
 * Execute the server in the port 3000. You can change it reconfiguring in the configuration file 'Config/Settings.js'
 
 ```bash
-    $ node index.js
+    $ npm run watch
+    $ npm start
 ```
 
 * We need a real connection to mongodb, it is also configurable in the configuration file.
