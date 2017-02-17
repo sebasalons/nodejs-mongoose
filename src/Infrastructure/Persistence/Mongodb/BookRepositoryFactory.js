@@ -25,7 +25,7 @@ module.exports.transformObjectToBook = function(data)
 {
     return new Book(
         data.id,
-        data.name,
+        data.title,
         data.author,
         data.pages,
         data.publisher
