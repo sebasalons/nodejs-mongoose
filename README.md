@@ -54,6 +54,12 @@ This example manages a small library.
     $ npm test
 ```
 
+* Import file format json
+
+```bash
+    $ mongoimport -d library -c book --jsonArray data/apiBooks_500.json
+```
+
 * Reference URL
 
     http://mongoosejs.com/
