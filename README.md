@@ -11,7 +11,8 @@ This example manages a small library.
 * Execute the server in the port 3000. You can change it reconfiguring in the configuration file 'Config/Settings.js'
 
 ```bash
-    $ node index.js
+    $ npm run watch
+    $ npm start
 ```
 
 * We need a real connection to mongodb, it is also configurable in the configuration file.
@@ -20,24 +21,24 @@ This example manages a small library.
 
     **Requests for books**
 
-    |Action|Type|Routes|
-    |---|---|---|
-    |Add|POST|/api/0.1/book|
-    |Update|PUT|/api/0.1/book/:id|
-    |Delete|DELETE|/api/0.1/book/:id|
-    |Find book by ID|GET|/api/0.1/book/:id|
-    |List of all books|GET|/api/0.1/books/:finder|
-    |Get availables|GET|/api/0.1/book/available|
+    |Action|Type|Routes|Implemented|
+    |---|---|---|---|
+    |Add|POST|/api/0.1/book|yes|
+    |Update|PUT|/api/0.1/book/:id|no|
+    |Delete|DELETE|/api/0.1/book/:id|no|
+    |Find book by ID|GET|/api/0.1/book/:id|yes|
+    |List of all books|GET|/api/0.1/books/:finder|yes|
+    |Get availables|GET|/api/0.1/book/available|no|
 
     **Requests for reserves**
 
-    |Action|Type|Routes|
-    |---|---|---|
-    |Add|POST|/api/0.1/reserve/book|
-    |Update|PUT|/api/0.1/reserve/book/:id|
-    |Delete|DELETE|/api/0.1/reserve/book/:id|
-    |Find reserve by ID|GET|/api/0.1/reserve/book/:id|
-    |List of all reserves|GET|/api/0.1/reserves/book/:finder|
+    |Action|Type|Routes|Implemented|
+    |---|---|---|---|
+    |Add|POST|/api/0.1/reserve/book|no|
+    |Update|PUT|/api/0.1/reserve/book/:id|no|
+    |Delete|DELETE|/api/0.1/reserve/book/:id|no|
+    |Find reserve by ID|GET|/api/0.1/reserve/book/:id|no|
+    |List of all reserves|GET|/api/0.1/reserves/book/:finder|no|
 
 
 ## Quick help
@@ -54,6 +55,12 @@ This example manages a small library.
     $ npm test
 ```
 
+* Import file format json
+
+```bash
+    $ mongoimport -d library -c book --jsonArray data/apiBooks_500.json
+```
+
 * Reference URL
 
     http://mongoosejs.com/
@@ -61,3 +68,5 @@ This example manages a small library.
     https://www.thoughtworks.com/insights/blog/nosql-databases-overview
     
     https://martinfowler.com/videos.html#data
+    
+    https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/

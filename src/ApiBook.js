@@ -68,6 +68,20 @@ api.put('/book/:id', function (req, res) {
 
         res.json(book);
     });
+});
+/**
+ * Find all books
+ */
+api.get('/books', function (req, res) {
+    let FindBooks = require('src/Application/Find/FindBooks');
+
+    FindBooks((err, books) => {
+        if(err){
+            res.status(404).json(err.message);
+            return;
+        }
+        res.json(book);
+    });
 
 });
 
@@ -80,8 +94,7 @@ api.delete('/book/:id', function(req, res) {
             res.status(404).json(err.message);
             return;
         }
-
-        res.json(book);
+        res.json(books);
     });
 });
 

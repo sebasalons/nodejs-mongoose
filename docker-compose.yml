@@ -4,3 +4,4 @@ mongodb:
       - "27018:27017"
   volumes:
       - ./docker/data/mongo/data:/data/db
+      - ./data:/backup

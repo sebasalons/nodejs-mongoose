@@ -39,6 +39,6 @@ function findBook(bookId)
 
 function saveBook(book)
 {
-    books.push(new Book(book['id'], book['name'], book['author'], book['pages'], book['publisher']));
+    books.push(new Book(book['id'], book['title'], book['author'], book['pages'], book['publisher']));
     return true;
 }
